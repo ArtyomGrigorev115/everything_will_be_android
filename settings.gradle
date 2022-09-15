@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "first_project"
 include ':app'
+include ':color_descriptor_java'
+include ':med_lab3_kotlin'
