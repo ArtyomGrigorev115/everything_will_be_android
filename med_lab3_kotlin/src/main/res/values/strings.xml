@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">med_lab3_kotlin</string>
+    <string name="text_description">В заданной строке подсчитать количество не латинских букв</string>
 </resources>
