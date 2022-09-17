@@ -5,12 +5,13 @@
       <map>
         <entry key="..\:/project/AndroidProject/everything_will_be_android/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/project/AndroidProject/everything_will_be_android/color_descriptor_java/src/main/res/layout/activity_color_descriptor.xml" value="0.358695652173913" />
+        <entry key="..\:/project/AndroidProject/everything_will_be_android/geo_quiz/src/main/res/layout/activity_geo_quiz.xml" value="0.25" />
         <entry key="..\:/project/AndroidProject/everything_will_be_android/med_lab3_kotlin/src/main/res/layout/activity_lab3.xml" value="0.2625" />
         <entry key="..\:/project/AndroidProject/everything_will_be_android/med_lab3v2_kotlin/src/main/res/layout/activity_lab3v2.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
