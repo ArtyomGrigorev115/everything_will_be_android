@@ -24,6 +24,8 @@ class GeoQuizActivity : AppCompatActivity() {
 
     private lateinit var nextButton: Button
     private lateinit var questionTextView: TextView
+    private lateinit var backButton: Button
+    private lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,16 @@ class GeoQuizActivity : AppCompatActivity() {
 
         nextButton = findViewById(R.id.next_button)
         questionTextView = findViewById(R.id.question_text_view)
+        backButton = findViewById(R.id.back)
+        textView = findViewById(R.id.question_text_view)
+
+        textView.setOnClickListener{
+            //Toast.makeText(this,"TextWiewClick",Toast.LENGTH_SHORT).show()
+            currentIndex = (currentIndex + 1) % questionBank.size
+            val questionTextResId = questionBank[currentIndex].textResId
+            questionTextView.setText(questionTextResId)
+            updateQuestion()
+        }
 
         trueButton.setOnClickListener { view: View ->
             // Toast.makeText(this,R.string.correct_toast,Toast.LENGTH_SHORT).show()
@@ -41,9 +53,9 @@ class GeoQuizActivity : AppCompatActivity() {
         }
 
         falseButton.setOnClickListener { view: View ->
-             val t:Toast = Toast.makeText(this,R.string.incorrect_toast,Toast.LENGTH_SHORT)
-             t.setGravity(Gravity.TOP,50,200)
-             t.show()
+            // val t:Toast = Toast.makeText(this,R.string.incorrect_toast,Toast.LENGTH_SHORT)
+            // t.setGravity(Gravity.TOP,50,200)
+            // t.show()
             checkAnswer(false)
 
             //  Toast.makeText(this,R.string.incorrect_toast,Toast.LENGTH_SHORT).show()
@@ -55,6 +67,13 @@ class GeoQuizActivity : AppCompatActivity() {
               questionTextView.setText(questionTextResId)
             updateQuestion()
         }
+
+        backButton.setOnClickListener {
+            currentIndex = (currentIndex - 1) % questionBank.size
+            val questionTextResId = questionBank[currentIndex].textResId
+            questionTextView.setText(questionTextResId)
+            updateQuestion()
+        };
 
         // val questionTextResId = questionBank[currentIndex].textResId
         // questionTextView.setText(questionTextResId)
