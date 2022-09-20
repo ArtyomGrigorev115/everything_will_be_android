@@ -38,7 +38,7 @@ class GeoQuizActivity : AppCompatActivity() {
         /*ImageButtons objects*/
         nextImageButton = findViewById(R.id.next_button)
         prevImageButton = findViewById(R.id.back)
-
+        /*true false buttons*/
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
 
