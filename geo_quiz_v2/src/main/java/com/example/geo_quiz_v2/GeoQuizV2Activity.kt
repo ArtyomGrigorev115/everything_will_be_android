@@ -108,7 +108,7 @@ class GeoQuizV2Activity : AppCompatActivity() {
             trueButton.setEnabled(false);
             falseButton.setEnabled(false);
         }*/
-        trueButton.setEnabled(questionBank[currentIndex].answer);
+       // trueButton.setEnabled(questionBank[currentIndex].answer);
        // trueButton.isEnabled = false;
 
     }
