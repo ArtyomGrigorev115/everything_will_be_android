@@ -5,12 +5,17 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 
 class GeoQuizActivity : AppCompatActivity() {
     private lateinit var trueButton: Button
     private lateinit var falseButton: Button
+
+    /*Image Buttons*/
+    private lateinit var nextImageButton: ImageButton
+    private lateinit var prevImageButton: ImageButton
 
     private val questionBank: List<Question> = listOf(
         Question(R.string.question_australia, true),
@@ -21,22 +26,25 @@ class GeoQuizActivity : AppCompatActivity() {
         Question(R.string.question_asia, true)
     )
     private var currentIndex = 0
-
-    private lateinit var nextButton: Button
+   // private lateinit var nextButton: Button
     private lateinit var questionTextView: TextView
-    private lateinit var backButton: Button
+  //  private lateinit var backButton: Button
     private lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_geo_quiz)
+        setContentView(R.layout.activity_geo_quiz2)
+
+        /*ImageButtons objects*/
+        nextImageButton = findViewById(R.id.next_button)
+        prevImageButton = findViewById(R.id.back)
 
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
 
-        nextButton = findViewById(R.id.next_button)
+       // nextButton = findViewById(R.id.next_button)
         questionTextView = findViewById(R.id.question_text_view)
-        backButton = findViewById(R.id.back)
+       // backButton = findViewById(R.id.back)
         textView = findViewById(R.id.question_text_view)
 
         textView.setOnClickListener{
@@ -61,15 +69,16 @@ class GeoQuizActivity : AppCompatActivity() {
             //  Toast.makeText(this,R.string.incorrect_toast,Toast.LENGTH_SHORT).show()
         }
 
-        nextButton.setOnClickListener {
+        nextImageButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
               val questionTextResId = questionBank[currentIndex].textResId
               questionTextView.setText(questionTextResId)
             updateQuestion()
         }
 
-        backButton.setOnClickListener {
-            currentIndex = (currentIndex - 1) % questionBank.size
+        prevImageButton.setOnClickListener {
+           // currentIndex = kotlin.math.abs((currentIndex - 1)) % questionBank.size
+            currentIndex = if(currentIndex - 1 >=0) currentIndex -1 else questionBank.lastIndex
             val questionTextResId = questionBank[currentIndex].textResId
             questionTextView.setText(questionTextResId)
             updateQuestion()
@@ -81,6 +90,7 @@ class GeoQuizActivity : AppCompatActivity() {
 
 
     }
+
 
     private fun updateQuestion() {
         val questionTextResId = questionBank[currentIndex].textResId
